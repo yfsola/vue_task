@@ -1,0 +1,6 @@
+v-for的优先级比v-if的优先级更高
+如果两者同时出现，不要把两者放在同一个元素上进行判断，应该把两者放在不同的标签上进行判断
+优化：
+1.如为了过滤列表中的项目（<li v-for="item in users" v-if="item.isActive"></li>）,这种情况应该是用computed将users进行过滤（activeUsers = users.filter(i => i.isActive)），
+使用返回过滤后的列表activeUsers再进行渲染
+2.或者为了判断是否显示渲染列表（<li v-for="item in users" v-if="showUser"></li>）,这种情况应该将v-if的判断放在外层元素（如ul,ol上）
